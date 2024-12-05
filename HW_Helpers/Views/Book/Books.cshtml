@@ -1,0 +1,33 @@
+﻿@using HW_Helpers.ViewModels
+<h2>Add books</h2>
+
+@model BookViewModel
+
+@if(Model?.Error.Length > 0)
+{
+    <div class="text-danger">
+        @Html.Raw(Model.Error)
+    </div>
+}
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label class="control-label">Title</label>
+        <input name="Title" class="form-control">@Model?.Title/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Author</label>
+        <input name="Author" class="form-control">@Model?.Author/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Genre</label>
+        <input name="Genre" class="form-control">@Model?.Genre/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Age</label>
+        <input name="Age" class="form-control">@Model?.Age/>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="Add" class="btn-primary"></input>
+    </div>
+</form>
